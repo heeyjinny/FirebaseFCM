@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FirebaseFCM"
         tools:targetApi="31">
+
+<!--    <service> 태그 수정    -->
+<!--    intent-filter에 MESSAGING_EVENT를 달아    -->
+<!--    메시지가 수신되면 MyFirebaseMessagingService가 동작하게 됨    -->
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+
+
+        </service>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
